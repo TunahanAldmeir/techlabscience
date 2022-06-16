@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+        <!--================Home Banner Area =================-->
+        <section class="banner_area">
+            <div class="banner_inner d-flex align-items-center">
+            	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+				<div class="container">
+					<div class="banner_content text-center">
+						<h2>Post Güncelle</h2>
+						<div class="page_link">
+							<a href="{% url 'index' %}">Home</a>
+							<a herf="#">{{category.title}}</a>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+
+        <!--================Blog Area =================-->
+        <section class="blog_area p_120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+
+						<h2 style="text-align:center;color:#990066" >Yazı Sil</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            <a href="{% url 'detail' object.pk object.slug %}" class="genric-btn info circle">Hayır</a>
+                            <button type="submit" class="genric-btn danger circle">Evet</button>
+
+
+                        </form>
+
+
+
+
+                    </div>
+                    {% include 'rights.html' %}
+                </div>
+            </div>
+        </section>
+        <!--================Blog Area =================-->
+
+{% endblock %}
